@@ -83,3 +83,15 @@ def comment(id):
         db.session.commit()
     comments = Comment.query.filter_by(blog_id=id)
     return render_template('comment.html',comment_form=comment_form,comments=comments)    
+
+
+
+@main.route('/delete/<int:id>', methods=['GET','POST'])
+def delete(id):
+    try:
+        if current_user.is_authenticated:
+            blog = Blog.query.filter_by(id=id).all()
+            for blogs in blog: 
+                db.session.delete(blogs)
+                db.session.commit()
+            return redirect(url_for('main.fashion'))
