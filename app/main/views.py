@@ -74,3 +74,12 @@ def subscriber():
     fashion = Blog.query.all()
     return render_template('index.html',subscriber=subscriber,subscriber_form=subscriber_form,fashion=fashion) 
 
+@main.route('/comments/<int:id>', methods=['GET','POST'])
+def comment(id):
+    comment_form=CommentForm()
+    if comment_form.validate_on_submit():
+        new_comment = Comment(description=comment_form.description.data,blog_id=id)
+        db.session.add(new_comment)
+        db.session.commit()
+    comments = Comment.query.filter_by(blog_id=id)
+    return render_template('comment.html',comment_form=comment_form,comments=comments)    
