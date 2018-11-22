@@ -45,7 +45,17 @@ def update_pic(uname):
         path = f'photos/{filename}'
         user.profile_pic_path = path
         db.session.commit()
-        return redirect(url_for('main.profile',unmae=unmae))
+        return redirect(url_for('main.profile',unmae=uname))
 
-
-
+@main.route('/fashion', methods=['GET','POST'])
+@login_required
+def fashion():
+    blog_form=BlogForm()
+    if blog_form.validate_on_submit():        
+        fashion = Blog(category=blog_form.category.data,title = blog_form.title.data)
+        db.session.add(fashion)
+        db.session.commit()
+    subscribers = Subscriber.query.all()
+    for email in subscribers:
+        mail_message("Welcome to my Blog site ","email/welcome_post",email.email,subscribers=subscribers)
+    return render_template('fashion.html',blog_form=blog_form) 
