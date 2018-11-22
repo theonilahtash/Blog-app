@@ -57,5 +57,20 @@ def fashion():
         db.session.commit()
     subscribers = Subscriber.query.all()
     for email in subscribers:
-        mail_message("Welcome to my Blog site ","email/welcome_post",email.email,subscribers=subscribers)
+        mail_message("Welcome To My Blog Site ","email/welcome_post",email.email,subscribers=subscribers)
     return render_template('fashion.html',blog_form=blog_form) 
+
+
+
+@main.route('/', methods=['GET','POST'])
+def subscriber():
+    subscriber_form=SubscriberForm()
+    if subscriber_form.validate_on_submit():
+        subscriber= Subscriber(email=subscriber_form.email.data,title = subscriber_form.title.data)
+        db.session.add(subscriber)
+        db.session.commit()
+        mail_message("Welcome To My Blog Site ","email/welcome_subscriber",subscriber.email,subscriber=subscriber)
+    subscriber = Blog.query.all()
+    fashion = Blog.query.all()
+    return render_template('index.html',subscriber=subscriber,subscriber_form=subscriber_form,fashion=fashion) 
+
