@@ -1,6 +1,6 @@
 {%extends 'base.html'%} {% import "bootstrap/wtf.html" as wtf %} {% block content%}
-<div class="row" style="background-image: url('');width: 1500px;">
-    <div class="row" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSmPBmbwbyFD9VwPcXV_K6u_9gx5DkCqUYVwl1nHqZ42GDb_SxSA');width: 1500px;height:500px;position: relative;bottom: 36px">
+<!-- <div class="row" style="background-image: url('');width: 1500px;">
+    <div class="row" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSmPBmbwbyFD9VwPcXV_K6u_9gx5DkCqUYVwl1nHqZ42GDb_SxSA');width: 1500px;height:500px;position: relative;bottom: 36px"> -->
         {% if current_user.is_authenticated %}
         <button>
             <a href="{{url_for('main.fashion')}}">
@@ -8,7 +8,7 @@
             </a>
         </button>
         {% endif %}
-        <div class="container" style="width:50%;background-color: #F08080;opacity: 0.8;">
+        <!-- <div class="container" style="width:50%;background-color: #F08080;opacity: 0.8;"> -->
             <strong>
                 <h1 style="color: white;">Welcome To My Blog Site</h1>
             </strong>
@@ -17,12 +17,12 @@
             </strong>
         </div>
         <a href="{{url_for('main.subscriber')}}">Subscriber</a>
-        <div class="container" style="width: 50%; background-color: #FFA07A;opacity: 0.8;">
+        <!-- <div class="container" style="width: 50%; background-color: #FFA07A;opacity: 0.8;"> -->
             <p>
                 <strong>Enter your Email and Username to Subscribe</strong>
             </p>
             <p>
-                <strong>Get A Notifaction Everytime I Post</strong>
+                <strong>Get Notifications anytime I Post Something</strong>
             </p>
             {{ wtf.quick_form(subscriber_form) }}
         </div>
@@ -31,22 +31,22 @@
 </div>
 
 <div class="row">
-    <div class="container" style="background-color: #FFEBCD;width:1400px;">
-        <div class="col-md-12">
+    <!-- <div class="container" style="background-color: #FFEBCD;width:1400px;">
+        <div class="col-md-12"> -->
             <br>
-            <div class="thumbnail" style="border: 1px solid #800000; width: 1300px;">
+            <!-- <div class="thumbnail" style="border: 1px solid #800000; width: 1300px;"> -->
                 <p>{{category.title}}</p>
                 <p>{{category.category}}</p>
                 <p>{{category.posted}}</p>
                 <p>
                     <a href="/comments/{{category.id}}">
-                        <button style=" color: #800000;">Comment</button>
+                        <button style=" color: green;">Comment</button>
                     </a>
                 </p>
             </div>
             {% if current_user.is_authenticated %}
             <a href="/delete/{{category.id}}">
-                <button style=" color: #800000;">DELETE BLOG</button>
+                <button style=" color: green;">DELETE BLOG</button>
             </a>
             </p>
             {% endif %}
