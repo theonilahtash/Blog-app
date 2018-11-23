@@ -9,10 +9,10 @@
                 <li>
                     <a href="/"> Blog Site</a>
                 </li>
-                <li class="dropdown">
+                <!-- <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Blog Categories
                         <span class="caret"></span>
-                    </a>
+                    </a> -->
                     <ul class="dropdown-menu">
                         <li>
                             <a href="./men">Men's Fashion</a>
@@ -21,10 +21,6 @@
                             <a href="./women">Women's Fashion</a>
                         </li>
                         <ul>
-        
-            <p style="font-size: 2.8em;text-align:right;color: chocolate;">
-                <a href="{{ url_for('main.new_pitch') }}"> Click </a>
-            </p>
             <ul class="nav navbar-nav navbar-center">
                 {% if current_user.is_authenticated %}
                 <li>
