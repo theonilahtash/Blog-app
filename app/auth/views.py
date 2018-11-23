@@ -33,7 +33,7 @@ def login():
         if user is not None and user.verify_password(form.password.data):
             login_user(user,form.remember.data)
             next_page = request.args.get('next')
-            return redirect(next_page) if next_page else redirect(url_for('main.index'))
+            return redirect(next_page) if next_page else redirect(url_for('main.fashion'))
 
         else:
             flash('Login Unsuccesful. Invalid username or Password')

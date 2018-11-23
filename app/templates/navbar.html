@@ -9,10 +9,10 @@
                 <li>
                     <a href="/"> Blog Site</a>
                 </li>
-                <!-- <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Blog Categories
+                 <li class="dropdown">
+                     <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Blogs
                         <span class="caret"></span>
-                    </a> -->
+                    </a> 
                     <ul class="dropdown-menu">
                         <li>
                             <a href="./men">Men's Fashion</a>
@@ -21,7 +21,10 @@
                             <a href="./women">Women's Fashion</a>
                         </li>
                         <ul>
-            <ul class="nav navbar-nav navbar-center">
+
+            <div class="container" style="text-align: right; font-size:2.0em;",
+            
+              <ul class="nav navbar-nav navbar-center">
                 {% if current_user.is_authenticated %}
                 <li>
                     <a class="nav-item nav-link" href="{{ url_for('main.new_blog') }}">Add Blog</a>
