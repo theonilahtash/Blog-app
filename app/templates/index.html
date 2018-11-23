@@ -1,6 +1,6 @@
 {%extends 'base.html'%} {% import "bootstrap/wtf.html" as wtf %} {% block content%}
 <div class="row" style="background-image: url('');width: 1500px;">
-    <div class="row" style="background-image: url('https://davidcatt.co.uk/wp-content/themes/catt-theme/images/fresh-produce.jpg');width: 1500px;height:500px;position: relative;bottom: 36px">
+    <div class="row" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSmPBmbwbyFD9VwPcXV_K6u_9gx5DkCqUYVwl1nHqZ42GDb_SxSA');width: 1500px;height:500px;position: relative;bottom: 36px">
         {% if current_user.is_authenticated %}
         <button>
             <a href="{{url_for('main.fashion')}}">
