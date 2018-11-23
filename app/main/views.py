@@ -81,7 +81,31 @@ def comment(id):
         db.session.add(new_comment)
         db.session.commit()
     comments = Comment.query.filter_by(blog_id=id)
-    return render_template('comment.html',comment_form=comment_form,comments=comments)    
+    return render_template('comment.html',comment_form=comment_form,comments=comments)
+
+
+@main.route('/del-comment/<id>')
+@login_required
+def delcomment(id):
+   '''
+   function to delete comments
+   '''
+   comment = Comment.query.filter_by(id = id).first()
+   db.session.delete(comment)
+   db.session.commit()
+   print(comment)
+   title = 'delete comments'
+   return render_template('delete.html',title = title, comment = comment)
+delete.html
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p> <span style="color:red;"><b>has been deleted</b></span></p>
+
+
+
+{% endblock %}    
 
 
 
