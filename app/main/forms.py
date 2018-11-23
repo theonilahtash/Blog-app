@@ -26,4 +26,3 @@ class SubscriberForm(FlaskForm):
     def validate_email(self,data_field):
                 if Subscriber.query.filter_by(email =data_field.data).first():
                     raise ValidationError('There is an account with that email')
-©
