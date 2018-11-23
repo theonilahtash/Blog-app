@@ -45,7 +45,7 @@ def update_pic(uname):
         path = f'photos/{filename}'
         user.profile_pic_path = path
         db.session.commit()
-        return redirect(url_for('main.profile',unmae=uname))
+        return redirect(url_for('main.profile',uname=uname))
 
 @main.route('/fashion', methods=['GET','POST'])
 @login_required
