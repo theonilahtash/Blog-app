@@ -49,6 +49,7 @@ def update_pic(uname):
 @main.route('/fashion', methods=['GET','POST'])
 @login_required
 def fashion():
+    user = current_user
     blog_form=BlogForm()
     if blog_form.validate_on_submit():        
         fashion = Blog(category=blog_form.category.data,title = blog_form.title.data)
@@ -56,8 +57,8 @@ def fashion():
         db.session.commit()
     subscribers = Subscriber.query.all()
     for email in subscribers:
-        mail_message("Welcome To My Blog Site ","email/welcome_post",email.email,subscribers=subscribers)
-    return render_template('fashion.html',blog_form=blog_form) 
+        # mail_message("Welcome To My Blog Site","email/welcome_user",email.email,subscribers=subscribers)
+        return render_template('fashion.html',blog_form=blog_form,user=user) 
 
 
 

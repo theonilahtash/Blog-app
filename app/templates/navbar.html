@@ -1,48 +1,51 @@
-<div class="navbar navbar-inverse" role="navigation">
+<div class="navbar navbar-inverse" role="navigation" style="background-color: #CD5C5C;">
     <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/" style="color: black;"> Blog Site</a>
+        </div>
         <div class="navbar-collapse collapse">
-            <ul class="btn btn-warning">
-
-                <!-- <li>
-                    <a href="/"> Home </a>
-                </li> -->
+            <ul class="nav navbar-nav">
                 <li>
-                    <a href="/"> Blog Site</a>
+                    <a href="/" style="color: black;">Fashion</a>
                 </li>
-                 <li class="dropdown">
-                     <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Blogs
-                        <span class="caret"></span>
-                    </a> 
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="./men">Men's Fashion</a>
-                        </li>
-                        <li>
-                            <a href="./women">Women's Fashion</a>
-                        </li>
-                        <ul>
-
-            <div class="container" style="text-align: right; font-size:2.0em;",
-            
-              <ul class="nav navbar-nav navbar-center">
-                {% if current_user.is_authenticated %}
+            </ul>
+            <ul>
                 <li>
-                    <a class="nav-item nav-link" href="{{ url_for('main.new_blog') }}">Add Blog</a>
+                    <a href="/category"> </a>
                 </li>
-                <li>
-                    <a class="nav-item nav-link" href="{{ url_for('auth.logout') }}">Sign out</a>
-                </li>
-                {% else %}
-                <li>
-                    <a class="nav-item nav-link" href="{{ url_for('auth.login') }}">
-                        <span class="glyphicon glyphicon-log-in"></span>Sign in</a>
-                </li>
-                <li>
-                    <a class="nav-item nav-link" href="{{ url_for('auth.register') }}">
-                        <span class="glyphicon glyphicon-user"></span>Sign Up</a>
-                </li>
-                {% endif %}
             </ul>
         </div>
-    </div>
+<ul class="nav navbar-nav navbar-right" style="color:white; font-size:2.5em;">
+    {% if current_user.is_authenticated %}
+    <li>
+        <a href="{{url_for('main.profile',uname=current_user.username)}}" style="color: black;">Profile</a>
+    </li>
+
+    <li>
+        <a class="nav-item nav-link" href="{{ url_for('auth.logout') }}">Sign out</a>
+    </li>
+    {% else %}
+    <li>
+        <a href="{{url_for('main.subscriber')}}">
+            <h3>Subscribe</h3>
+        </a>
+    </li>
+    <li>
+        <a class="nav-item nav-link" href="{{ url_for('auth.login') }}">
+            <span class="glyphicon glyphicon-log-in"></span>Sign in</a>
+    </li>
+    <li>
+        <a class="nav-item nav-link" href="{{ url_for('auth.register') }}">
+            <span class="glyphicon glyphicon-user"></span>Sign Up</a>
+    </li>
+    {% endif %}
+</ul>
+</div>
+</div>
 </div>
