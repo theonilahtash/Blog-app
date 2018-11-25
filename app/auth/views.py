@@ -17,6 +17,7 @@ def register():
         user = User(email = form.email.data,username = form.username.data, password = form.password.data)
         db.session.add(user)
         db.session.commit()
+        # mail_message("Welcome To My Blog Site ","email/welcome_user",email.email,subscribers=subscribers)
         flash('Your account has been created! You can now log in')
         return redirect(url_for('auth.login'))
         title = "Create an Account"
@@ -25,6 +26,7 @@ def register():
 
 @auth.route('/login', methods=['GET','POST'])
 def login():
+
     if current_user.is_authenticated:
         return redirect(url_for('main.index'))
     form = LoginForm()
@@ -44,4 +46,4 @@ def login():
 @auth.route("/logout")
 def logout():
     logout_user()
-    return redirect(url_for('main.index'))
+    return redirect(url_for('main.fashion'))
