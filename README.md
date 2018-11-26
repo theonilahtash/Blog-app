@@ -1,11 +1,11 @@
-# BLOG POST
-## This is an application that allows users view fashion blogs,comment and be able to delete any that the fill is insultive .Done on 25/11/2018
+# Blog Site
 
+## Built By [Theonilah Owali](https://github.com/theonilahtash/)
 
-## By **[Theonilah Owali](https://github.com/theonilahtash)**
+## On 25TH NOV 2018
 
 ## Description
- [blog](https://tash-blog.herokuapp.com/)This is an application that allows users to view blogs,comment and view the  available posts and also comment on them only after signing in for an account.Users can also subscribe to the website.
+ (https://tash-blog.herokuapp.com/)This is an application that allows users to view blogs,comment and view the  available posts and also comment on them only after signing in for an account.Users can also subscribe to the website.
 
 ## User Stories
 1. As a user one can view the blog posts submitted
@@ -27,11 +27,17 @@
 
 ## Setup/Installation Requirements
 
-* Click [Blog](https://tash-blog.herokuapp.com/) <br/>
-  or <br/>
+## Installation Requirements
+* install Flask
+   $ python3.6 -m pip install flask
+* Install  python version 3.6
+* Install gunicorn:
+   (virtual)$ python3.6 -m  pip install gunicorn
+* Install Heroku cli that helps to deploy your application. 
+* Atleast have a computer or a laptop
+* Have an internet connection
+* Visit 
 * Copy [Blog ](https://tash-blog.herokuapp.com/) and  Paste the link on your prefered browser
-
-_*This requires internet connection._*
 
 # Running Tests
 * python3.6 manage.py test
